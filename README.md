@@ -48,7 +48,6 @@ ReStore is a web-based platform designed for buying and selling second-hand item
    - Visit `http://localhost/final_proj/apply_schema.php` in your browser. This script will execute the SQL dump file.
    
    **Option B: Manual Import**
-   - In phpMyAdmin, select the `second_hand_db` database.
    - Click "Import" tab.
    - Choose the file `second_hand_db.sql` from the project root.
    - Click "Import".
@@ -67,4 +66,4 @@ If you have a different setup, please update `api/db.php` accordingly.
 ## Usage
 
 Access the application via:
-`http://localhost/final_proj`
+`http://localhost/final_proj/index.html`
