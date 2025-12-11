@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart - ReStore</title>
+    <link rel="stylesheet" href="assets/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="container nav-content">
+            <a href="index.html" class="nav-brand">ReStore</a>
+            <div id="nav-links" class="nav-links">
+                <!-- Nav items will be injected here -->
+            </div>
+        </div>
+    </nav>
+
+    <main class="container main-content">
+        <h2 style="margin-bottom: 1.5rem;">Your Shopping Cart</h2>
+        <div id="cart-items" class="cart-list">
+            <p>Loading cart...</p>
+        </div>
+        <div id="cart-summary" class="cart-summary" style="display: none;">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="cart-total-price">$0.00</span>
+            </div>
+
+            <div style="margin: 1rem 0; padding: 1rem; border: 1px solid #eee; border-radius: 8px;">
+                <h4 style="margin-bottom: 0.5rem;">Shipping Details</h4>
+                <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                    <input type="text" id="ship-name" placeholder="Full Name" class="form-control" require>
+                    <input type="text" id="ship-phone" placeholder="Phone Number" class="form-control" require>
+                    <textarea id="ship-address" placeholder="Shipping Address" class="form-control" rows="2"
+                        require></textarea>
+                </div>
+            </div>
+            <button onclick="checkout()" class="btn btn-primary"
+                style="width: 100%; margin-top: 1rem;">Checkout</button>
+        </div>
+    </main>
+
+    <script src="assets/app.js"></script>
+</body>
+
+</html>

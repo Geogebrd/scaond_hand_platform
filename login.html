@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - ReStore</title>
+    <link rel="stylesheet" href="assets/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="container nav-content">
+            <a href="index.html" class="nav-brand">ReStore</a>
+        </div>
+    </nav>
+
+    <main class="container main-content">
+        <div class="auth-container">
+            <h2 style="margin-bottom: 1.5rem; text-align: center;">Welcome Back</h2>
+            <form id="login-form">
+                <div class="form-group">
+                    <label class="form-label">Username</label>
+                    <input type="text" name="username" class="form-input" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Password</label>
+                    <input type="password" name="password" class="form-input" required>
+                </div>
+                <div id="form-error" class="form-error"></div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Login</button>
+            </form>
+            <p style="margin-top: 1rem; text-align: center; color: var(--text-secondary);">
+                New here? <a href="register.html" style="color: var(--primary-color);">Create an account</a>
+            </p>
+        </div>
+    </main>
+    <script src="assets/app.js"></script>
+</body>
+
+</html>

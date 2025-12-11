@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Seller Dashboard - ReStore</title>
+    <link rel="stylesheet" href="assets/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="container nav-content">
+            <a href="index.html" class="nav-brand">ReStore</a>
+            <div id="nav-links" class="nav-links"></div>
+        </div>
+    </nav>
+
+    <main class="container main-content">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+            <h2>Seller Dashboard</h2>
+            <a href="settings.html" class="btn btn-outline">My Settings</a>
+        </div>
+        <div class="card-container" style="margin-top: 1rem;">
+            <h3>My Listings</h3>
+            <div class="table-responsive">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Product</th>
+                            <th>Price</th>
+                            <th>Status</th>
+                            <th>Buyer Info</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody id="listings-body">
+                        <!-- Items -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <script src="assets/app.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            await checkAuth();
+            loadSellerDashboard();
+        });
+    </script>
+</body>
+
+</html>

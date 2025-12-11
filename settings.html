@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Settings - ReStore</title>
+    <link rel="stylesheet" href="assets/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="container nav-content">
+            <a href="index.html" class="nav-brand">ReStore</a>
+            <div id="nav-links" class="nav-links"></div>
+        </div>
+    </nav>
+
+    <main class="container main-content" style="max-width: 600px;">
+        <h2>Settings & Shipping Address</h2>
+        <div class="card-container" style="margin-top: 1rem;">
+            <p style="margin-bottom: 1.5rem; color: #666;">Please update your shipping information. This will be used
+                for all future purchases.</p>
+
+            <form id="settings-form">
+                <div class="form-group">
+                    <label for="real_name">Full Name</label>
+                    <input type="text" id="real_name" name="real_name" class="form-control" required
+                        placeholder="John Doe">
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" class="form-control" required placeholder="0912345678">
+                </div>
+
+                <div class="form-group">
+                    <label for="address">Shipping Address</label>
+                    <textarea id="address" name="address" class="form-control" rows="3" required
+                        placeholder="123 Main St, City, Country"></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Save Changes</button>
+            </form>
+        </div>
+    </main>
+
+    <script src="assets/app.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            await checkAuth();
+            if (!currentUser) {
+                window.location.href = 'login.html';
+                return;
+            }
+            loadSettings();
+        });
+
+        async function loadSettings() {
+            const res = await apiCall('/settings.php');
+            if (res.error) return;
+
+            document.getElementById('real_name').value = res.real_name || '';
+            document.getElementById('phone').value = res.phone || '';
+            document.getElementById('address').value = res.address || '';
+        }
+
+        document.getElementById('settings-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const data = {
+                real_name: document.getElementById('real_name').value,
+                phone: document.getElementById('phone').value,
+                address: document.getElementById('address').value
+            };
+
+            const res = await apiCall('/settings.php', 'POST', data);
+            if (res.success) {
+                alert('Settings saved successfully!');
+                // Check if we were redirected here from checkout (we can check referrer or param, but simpler is just let user navigate back)
+                // Or maybe redirect to cart if history logic suggests?
+                // For now, simple alert.
+            } else {
+                alert(res.error || 'Failed to save settings');
+            }
+        });
+    </script>
+</body>
+
+</html>

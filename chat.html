@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Messages - ReStore</title>
+    <link rel="stylesheet" href="assets/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="container nav-content">
+            <a href="index.html" class="nav-brand">ReStore</a>
+            <div id="nav-links" class="nav-links"></div>
+        </div>
+    </nav>
+
+    <main class="container main-content chat-layout">
+        <aside class="chat-sidebar">
+            <h3>Conversations</h3>
+            <ul id="conversation-list">
+                <!-- Users -->
+            </ul>
+        </aside>
+        <section class="chat-area">
+            <div id="chat-header" class="chat-header">
+                <h3>Select a conversation</h3>
+            </div>
+            <div id="chat-messages" class="chat-messages">
+                <!-- Messages -->
+            </div>
+            <form id="chat-form" class="chat-input-area" style="display: none;">
+                <input type="text" id="message-input" placeholder="Type a message..." required>
+                <button type="submit" class="btn btn-primary">Send</button>
+            </form>
+        </section>
+    </main>
+
+    <script src="assets/app.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            await checkAuth();
+            initChat();
+        });
+    </script>
+</body>
+
+</html>
